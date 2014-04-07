@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Font Awesome
+   ========================================================================== */
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../fonts/fontawesome-webfont.eot?v=4.0.3');
+    src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'),
+         url('../fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'),
+         url('../fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'),
+         url('../fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ==========================================================================
+   Main styles
+   ========================================================================== */
+
+.ffr-fa {
+    font-family: "FontAwesome";
+}
+
+.ffr-container {
+    margin: 1em .5em;
+
+    color: #333;
+    background: #fff;
+    text-align: left;
+
+    -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+}
+
+.ffr-container a,
+.ffr-container a:visited,
+.ffr-container a:active,
+.ffr-container a:hover {
+    color: #3B5998;
+}
+
+.ffr-container a:hover {
+    text-decoration: underline;
+}
+
+.ffr-header {
+    padding: .5em;
+}
+
+.ffr-icon {
+    float: left;
+    padding: 0 1em 0 0;
+    height: 1.4em;
+
+    text-align: center;
+}
+
+.ffr-status {
+    padding: .5em;
+}
+
+.ffr-media {
+    padding: .5em;
+
+    text-align: center;
+}
+
+
+.ffr-actions {
+    height: 2em;
+
+    background: #ddd;
+}
