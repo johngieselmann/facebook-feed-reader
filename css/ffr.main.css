@@ -57,16 +57,21 @@
 
 .ffr-status {
     padding: .5em;
+
+    font-size: 1.2em;
+    line-height: 1.5em;
 }
 
 .ffr-media {
-    padding: .5em;
-
     text-align: center;
 }
 
+.ffr-media img {
+    vertical-align: bottom;
+}
 
 .ffr-actions {
+    display: none;
     height: 2em;
 
     background: #ddd;

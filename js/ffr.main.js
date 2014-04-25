@@ -28,6 +28,9 @@
          * - appId str (default: null) The Facebook App ID that grants access
          *   to pulling the feed.
          *
+         * - postLimit int (default: false) The maximum number of posts to
+         *   create from the page.
+         *
          * - onComplete func (default: empty) The function called once the
          *   building of the post HTML is complete.
          *   - Param 1 arr - An array of the posts pulled.
@@ -41,6 +44,7 @@
          */
         this.config = {
             "appId"      : null,
+            "postLimit"  : false,
             "onComplete" : function(posts, postsHtml) {},
             "pageId"     : null,
             "tokenPath"  : "php/ffr_token.php"
@@ -123,7 +127,7 @@
                 "el"   : "a",
                 "attr" : {
                     "class" : "ffr-fa fa-facebook",
-                    "href"   : "http://facebook.com/" + self.config.screenName,
+                    "href"   : "http://facebook.com/<%page-id%>",
                     "target" : "_blank"
                 }
             },
@@ -282,8 +286,9 @@
             }
 
             // set the posts object and the HTML for the posts
-            self.posts = result.data;
-            for (var i in self.posts) {
+            var postCount = 0;
+            for (var i = 0; i < result.data.length; i++) {
+                self.posts[i] = result.data[i];
 
                 // ignore facebook status updates
                 if (   self.posts[i].type === "status"
@@ -292,7 +297,15 @@
                     continue;
                 }
 
+                // do not go beyond our post limit if it is set
+                if (self.config.postLimit !== false) {
+                    if (postCount >= parseInt(self.config.postLimit)) {
+                        break;
+                    }
+                }
+
                 self.postsHtml[i] = self.buildPost(self.posts[i]);
+                postCount++;
             }
 
             // call the onComplete callback
@@ -333,7 +346,8 @@
                 "container",
                 {
                     "content-status" : postHtml,
-                    "content-date"   : self.buildDate(post)
+                    "content-date"   : self.buildDate(post),
+                    "page-id"        : self.config.pageId
                 }
             );
 
