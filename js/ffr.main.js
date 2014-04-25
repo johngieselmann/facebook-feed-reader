@@ -28,9 +28,6 @@
          * - appId str (default: null) The Facebook App ID that grants access
          *   to pulling the feed.
          *
-         * - postLimit int (default: false) The maximum number of posts to
-         *   create from the page.
-         *
          * - onComplete func (default: empty) The function called once the
          *   building of the post HTML is complete.
          *   - Param 1 arr - An array of the posts pulled.
@@ -39,14 +36,17 @@
          * - pageId str (default: null) The ID of the Facebook page/person for
          *   which we are pulling the feed.
          *
+         * - postLimit int (default: false) The maximum number of posts to
+         *   create from the page.
+         *
          * - tokenPath str (default: php/ffr_token.php) The path to the file
          *   that will return the Facebook Access Token.
          */
         this.config = {
             "appId"      : null,
-            "postLimit"  : false,
             "onComplete" : function(posts, postsHtml) {},
             "pageId"     : null,
+            "postLimit"  : false,
             "tokenPath"  : "php/ffr_token.php"
         };
 

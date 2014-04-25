@@ -38,6 +38,7 @@ var ffrConfig = {
     "appId"      : null,
     "onComplete" : function(posts, postsHtml) {},
     "pageId"     : null,
+    "postLimit"  : false,
     "tokenPath"  : "php/ffr_token.php"
 };
 
@@ -61,6 +62,9 @@ initialization.
 
 - **pageId** str *(default: null)* The ID of the Facebook page/person for
   which we are pulling the feed.
+
+- **postLimit** int (default: false) The maximum number of posts to create
+  from the page.
 
 - **tokenPath** str *(default: php/ffr_token.php)* The path to the file
   that will return the Facebook Access Token.
